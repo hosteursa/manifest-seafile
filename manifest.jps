@@ -23,8 +23,8 @@ nodes:
      SEAFILE_ADMIN_EMAIL: admin@${env.domain}
      SEAFILE_SERVER_HOSTNAME: ${env.domain}
      SEAFILE_ADMIN_PASSWORD: ${globals.ADM_PASSWORD_SF}
-#    volumes:
-#     - /opt/seafile-data
+    volumes:
+     - /opt/seafile-data
         
 restartContainers:
   - nodeGroup: sf

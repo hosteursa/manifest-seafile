@@ -1,0 +1,38 @@
+type: install
+version: 1.0
+name: Seafile
+categories: ["apps/file-management", "apps/popular", "apps/file-manager"]
+appVersion: 6.3.4
+displayName: Seafile
+homepage: https://github.com/hosteursa/manifest-seafile
+logo: https://raw.githubusercontent.com/hosteursa/manifest-seafile/master/seafile-logo.png
+description: |
+  Enterprise file sync and share platform with high reliability and performance.
+  
+  More info on [https://www.seafile.com/](https://www.seafile.com/)
+
+globals:
+  ADM_PASSWORD_SF: ${fn.password(20)}
+
+nodes:         
+  - image: seafileltd/seafile:latest
+    count: 1
+    cloudlets: 16
+    nodeGroup: sf
+    env:
+     SEAFILE_ADMIN_EMAIL: admin@${env.domain}
+     SEAFILE_SERVER_HOSTNAME: ${env.domain}
+     SEAFILE_ADMIN_PASSWORD: ${globals.SEAFILE_ADMIN_PASSWORD}
+    volumes:
+     - /opt/seafile-data
+        
+restartContainers:
+  - nodeGroup: sp
+
+success: |
+  ## Seafile is ready
+  **Username**: admin
+  
+  **Password**: ${globals.SEAFILE_ADMIN_PASSWORD}
+
+  

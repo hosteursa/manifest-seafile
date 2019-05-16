@@ -31,7 +31,7 @@ restartContainers:
 
 success: |
   ## Seafile is ready
-  **Username**: admin
+  **Username**: admin@${env.domain}
   
   **Password**: ${globals.SEAFILE_ADMIN_PASSWORD}
 

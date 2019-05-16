@@ -2,7 +2,7 @@ type: install
 version: 1.0
 name: Seafile
 categories: ["apps/file-management", "apps/popular", "apps/file-manager"]
-appVersion: 6.3.4
+appVersion: 634
 displayName: Seafile
 homepage: https://github.com/hosteursa/manifest-seafile
 logo: https://raw.githubusercontent.com/hosteursa/manifest-seafile/master/seafile-logo.png

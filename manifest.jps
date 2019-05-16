@@ -2,7 +2,7 @@ type: install
 version: 1.0
 name: Seafile
 categories: ["apps/file-management", "apps/popular", "apps/file-manager"]
-appVersion: 634
+appVersion: 6
 displayName: Seafile
 homepage: https://github.com/hosteursa/manifest-seafile
 logo: https://raw.githubusercontent.com/hosteursa/manifest-seafile/master/seafile-logo.png
@@ -22,17 +22,17 @@ nodes:
     env:
      SEAFILE_ADMIN_EMAIL: admin@${env.domain}
      SEAFILE_SERVER_HOSTNAME: ${env.domain}
-     SEAFILE_ADMIN_PASSWORD: ${globals.SEAFILE_ADMIN_PASSWORD}
+     SEAFILE_ADMIN_PASSWORD: ${globals.ADM_PASSWORD_SF}
     volumes:
      - /opt/seafile-data
         
 restartContainers:
-  - nodeGroup: sp
+  - nodeGroup: sf
 
 success: |
   ## Seafile is ready
   **Username**: admin@${env.domain}
   
-  **Password**: ${globals.SEAFILE_ADMIN_PASSWORD}
+  **Password**: ${globals.ADM_PASSWORD_SF}
 
   
